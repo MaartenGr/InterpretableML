@@ -14,13 +14,21 @@ This repo and the corresponding article describe several methods for applying ex
 Some methods include: 
 
 ### PDP 
+Partial Dependency Plots (DPD) show the effect a feature has on the outcome of a predictive based model. It marginalizes the model output over the distribution of features in order to extract the importance of the feature of interest. 
+
 <img src="https://github.com/MaartenGr/InterpretableML/blob/master/Images/occupation.png" width="70%"/>
 
+### LIME
+LIME basically tries to step away from deriving the importance of global features and instead approximates the importance of features for local predictions. It does so by taking the row (or set of data points) from which to predict and generate fake data based on that row. It then calculates the similarity between the fake data and the real data and approximates the effect of the changes based on the similarity between the fake and real data.
+
+<img src="https://github.com/MaartenGr/InterpretableML/blob/master/Images/lime.PNG" width="70%"/>
+
 ### SHAP
+In its essence, SHAP uses game theory to track the marginal contributions of each variable. For each variable, it randomly samples other values from the data set and calculates the change in your model score. These changes are then averaged for each variable to create a summary score, but also gives information on how important certain variables are for a specific data point.
+
 <img src="https://github.com/MaartenGr/InterpretableML/blob/master/Images/shap.PNG" width="70%"/>
 
 ### SHAP (Summary)
-<img src="https://github.com/MaartenGr/InterpretableML/blob/master/Images/summary_shap.png" width="70%"/>
+The Additivity axiom allows the Shapley values for each one-hot encoded generated feature to be summed as a representation of the Shapley value for the entire feature.
 
-**To do:**
-* Show how you can use SHAP values for deploying models
+<img src="https://github.com/MaartenGr/InterpretableML/blob/master/Images/summary_shap.png" width="70%"/>
